@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'HanaleiFillRegular';
+    src: url('../../fonts/HanaleiFill-Regular.ttf') format('truetype');
+}
+
+.logo{
+    font-family: HanaleiFillRegular, sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+    color: #000000;
+}
