@@ -1,7 +1,18 @@
 .login{
     display: flex;
+    margin-right: 20px;
+    position: relative;
+    z-index: 1;
 }
-
+.login ul{
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.user-menu-burger{
+    display: none;
+}
 .login-button{
     margin-left: 30px;
     border: 1px #000000 solid;
@@ -9,8 +20,90 @@
     padding: 5px 15px 5px 15px;
     text-decoration: none;
     font-size: 16px;
+    color: #000;
 }
 .login-button:hover{
     background-color: #7E75B7;
     color: #ffffff;
+}
+@media (max-width: 767px) {
+    .login{
+        display: block;
+        position: fixed;
+        left: 0;
+        top: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: darkgray;
+        transition: 0.6s;
+    }
+    .login.active{
+        top: 0;
+    }
+    .login ul{
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    .login ul li{
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #000000;
+
+    }
+    .login-button{
+        border: none;
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+        font-weight: 600;
+    }
+    .login-button:hover{
+        background-color: initial;
+        color: initial;
+    }
+    .user-menu-burger{
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        z-index: 3;
+    }
+    .user-menu-burger span{
+        position: absolute;
+        background-color: black;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 9px;
+        transition: 0.3s;
+    }
+    .user-menu-burger:before,
+    .user-menu-burger:after{
+        content: '';
+        background-color: black;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: 0.3s;
+    }
+    .user-menu-burger:before{
+        top: 0;
+    }
+    .user-menu-burger:after{
+        bottom: 0;
+    }
+    .user-menu-burger.active:before{
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    .user-menu-burger.active:after{
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+    .user-menu-burger.active span{
+        display: none;
+    }
 }
