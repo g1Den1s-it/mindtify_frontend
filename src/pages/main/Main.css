@@ -1,10 +1,20 @@
+body{
+    margin: 0;
+}
+@media (max-width: 767px) {
+    body.lock{
+        overflow: hidden;
+    }
+}
+
 .main{
     width: 100%;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .container{
     max-width: 1440px;
     width: 100%;
-    padding: 26px 25px 26px 25px;
 }
+

@@ -1,10 +1,12 @@
-import Menu from "../../modules";
 import "./Main.css"
+import {Menu, TestList} from "../../modules";
+
 const Main = () =>{
     return (
         <main className="main">
             <div className="container">
-                <Menu></Menu>
+                <Menu/>
+                <TestList/>
             </div>
         </main>
     );
