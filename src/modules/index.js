@@ -1,3 +1,4 @@
 import Menu from "./Menu/Menu";
+import TestList from "./TestList/TestList";
 
-export default Menu;
+export {Menu, TestList};
