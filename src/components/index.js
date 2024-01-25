@@ -1,3 +1,4 @@
 import UserMenu from "./userMenu/UserMenu";
+import Card from "./card/Card";
 
-export default UserMenu;
+export {Card, UserMenu};
