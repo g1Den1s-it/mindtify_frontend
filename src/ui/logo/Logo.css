@@ -9,3 +9,11 @@
     text-decoration: none;
     color: #000000;
 }
+@media (max-width: 767px) {
+    .logo{
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+}
