@@ -1,4 +1,4 @@
-import UserMenu from "../../components";
+import {UserMenu} from "../../components";
 import Logo from "../../ui";
 import "./Menu.css"
 const Menu = () =>{
