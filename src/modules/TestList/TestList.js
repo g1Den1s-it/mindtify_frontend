@@ -3,7 +3,6 @@ import "./TestList.css"
 import {useEffect, useState} from "react";
 import getTestListRequset from "./api/getTestListRequset";
 const TestList = () => {
-    const testImage = "http://0.0.0.0/media/user/image/anime.jpg";
     const [cardList, setCardList] = useState([{}]);
 
     useEffect(() => {
