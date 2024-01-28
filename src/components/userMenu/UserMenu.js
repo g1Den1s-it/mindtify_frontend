@@ -27,8 +27,8 @@ const UserMenu = () => {
     }
 
     return(
-    <div className="user-menu">
-        <div className="user-menu-burger" onClick={activeHandler}>
+    <div data-testid="user-menu" className="user-menu">
+        <div data-testid="burger" className="user-menu-burger" onClick={activeHandler}>
             <span></span>
         </div>
         {isAuth
@@ -36,11 +36,11 @@ const UserMenu = () => {
             <div className="user">
                 <img className="user-image" src={user.user.image === '' ? defaultUserImage : user.image}
                      alt="user"/>
-                <div className="user-wrapper" onClick={openHandlerUser}>
+                <div data-testid="wrapper" className="user-wrapper" onClick={openHandlerUser}>
                     <span className="user-username">{user.user.username}</span>
-                    <div className="user-pointer"></div>
+                    <div data-testid="pointer" className="user-pointer"></div>
                 </div>
-                <nav className="user-nav">
+                <nav data-testid="nav" className="user-nav">
                     <ul>
                         <li>
                             <a href="">Log out</a>

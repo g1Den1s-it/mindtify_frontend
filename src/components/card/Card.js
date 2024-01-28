@@ -2,7 +2,7 @@ import "./Card.css";
 const Card = ({img, slug, name}) => {
     const defaultImage = "/default/cardDefaultImage.png";
     return (
-        <a className="card" href={"/" + slug + "/"}>
+        <a className="card" href={"/" + slug + "/"} data-testid={`card-${slug}`}>
             {!img
                 ?
                     <div className="card-img" style={{backgroundImage: `url("${defaultImage}")`}}>
