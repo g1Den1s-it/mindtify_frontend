@@ -1,7 +1,7 @@
 import {render, screen} from "@testing-library/react";
 import React from "react"
 import {Card} from "../index";
-
+import '@testing-library/jest-dom/extend-expect';
 describe("Test Card", () => {
     test("Rendering test", () => {
         const testData = {

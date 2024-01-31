@@ -1,7 +1,7 @@
 import {render, screen, fireEvent, waitFor} from "@testing-library/react";
 import React from "react"
 import {UserMenu} from "../index";
-
+import '@testing-library/jest-dom/extend-expect';
 
 describe("Test User Menu", () => {
    test("Rendering test", () => {

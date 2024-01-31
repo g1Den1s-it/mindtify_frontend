@@ -1,7 +1,7 @@
 import {render, screen} from "@testing-library/react";
 import {Logo} from "../index";
 import React from "react";
-
+import '@testing-library/jest-dom/extend-expect';
 describe("Tests for Logo", () => {
     test("Check text in logo", () => {
         render(<Logo/>);

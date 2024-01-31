@@ -1,4 +1,5 @@
 import "./Card.css";
+import React from "react";
 const Card = ({img, slug, name}) => {
     const defaultImage = "/default/cardDefaultImage.png";
     return (
