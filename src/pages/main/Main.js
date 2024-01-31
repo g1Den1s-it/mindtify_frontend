@@ -3,7 +3,7 @@ import {Menu, TestList} from "../../modules";
 
 const Main = () =>{
     return (
-        <main className="main">
+        <main className="main" data-testid="main">
             <div className="container">
                 <Menu/>
                 <TestList/>
