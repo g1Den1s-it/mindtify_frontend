@@ -1,9 +1,10 @@
 import "./Card.css";
 import React from "react";
+import {Link} from "react-router-dom";
 const Card = ({img, slug, name}) => {
     const defaultImage = "/default/cardDefaultImage.png";
     return (
-        <a className="card" href={"/" + slug + "/"} data-testid={`card-${slug}`}>
+        <Link className="card" to={"/" + slug + "/"} data-testid={`card-${slug}`}>
             {!img
                 ?
                     <div className="card-img" style={{backgroundImage: `url("${defaultImage}")`}}>
@@ -18,7 +19,7 @@ const Card = ({img, slug, name}) => {
                     </div>
                 </div>
             }
-        </a>
+        </Link>
     );
 }
 export default Card;

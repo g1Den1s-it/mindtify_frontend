@@ -13,7 +13,7 @@ const TestList = () => {
 
         fetchTestListData();
 
-    }, [cardList]);
+    }, []);
 
 
     return (

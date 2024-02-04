@@ -1,10 +1,11 @@
 import {useState} from "react";
 import React from "react";
 import "./UserMenu.css";
+import {Link} from "react-router-dom";
 
 const UserMenu = () => {
     const defaultUserImage = "/default/user.png";
-    const [isAuth, setIsAuth] = useState(true);
+    const [isAuth, setIsAuth] = useState(false);
     const [user, isUser] = useState({user: {image: '', username: 'some_username'}});
 
     const activeHandler = (e) => {
@@ -43,7 +44,7 @@ const UserMenu = () => {
                 <nav data-testid="nav" className="user-nav">
                     <ul>
                         <li>
-                            <a href="">Log out</a>
+                            <Link to="/log-out/">Log out</Link>
                         </li>
                     </ul>
                 </nav>
@@ -53,10 +54,10 @@ const UserMenu = () => {
             <div className="login">
                 <ul>
                     <li>
-                        <a className="login-button" href="/sign-in/">sign in</a>
+                        <Link className="login-button" to="/login/">sign in</Link>
                     </li>
                     <li>
-                        <a className="login-button" href="/sign-up/">sign up</a>
+                        <Link className="login-button" to="/sign-up/">sign up</Link>
                     </li>
                 </ul>
             </div>
