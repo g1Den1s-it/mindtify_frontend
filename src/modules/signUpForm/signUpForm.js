@@ -2,6 +2,10 @@ import React, {useEffect, useState} from "react";
 import {Input} from "../../ui";
 import "./signUpForm.css";
 import postRegistrationRequest from "./api/postRegistrationRequest";
+import { useNavigate } from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {setUser} from "../../states/user/userSlice";
+import postLoginRequest from "./api/postLoginRequest";
 
 const SignUpForm = () => {
     const [username, setUsername] = useState('');
@@ -14,6 +18,9 @@ const SignUpForm = () => {
     const [emailError, setEmailError] = useState('Email is required');
     const [passwordError, setPasswordError] = useState('Password is required');
     const [isValidForm, setIsValidForm] = useState(false);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(usernameError || passwordError || emailError){
@@ -70,20 +77,36 @@ const SignUpForm = () => {
         }
     };
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
         if(isValidForm){
-            postRegistrationRequest(
-                "/api/user/sign-up/",
-                JSON.stringify(
-                    {
+            await postRegistrationRequest(
+                JSON.stringify({
                     "username": username,
                     "email": email,
                     "password": password
+                })
+            );
+            const response = await postLoginRequest(
+                JSON.stringify({
+                    "username": username,
+                    "password": password
+                })
+            );
+
+            dispatch(
+                setUser(
+                    {
+                        "username": username,
+                        "email": email,
+                        "image": response.data.user.image,
+                        "refresh": response.data.refresh,
+                        "access": response.data.access,
                     }
                 )
             );
         }
+        navigate("/");
     };
 
     return (
