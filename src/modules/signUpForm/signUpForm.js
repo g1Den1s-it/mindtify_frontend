@@ -119,7 +119,7 @@ const SignUpForm = () => {
             {(emailDirty && emailError) && <div style={{color: "red"}}>{emailError}</div>}
             <Input onChange={e => emailHandler(e)} onBlur={e => blurHandler(e)} type="email" name="email"/>
 
-            <label htmlFor="c">Password:</label>
+            <label htmlFor="password">Password:</label>
             {(passwordDirty && passwordError) && <div style={{color: "red"}}>{passwordError}</div>}
             <Input onChange={e => passwordHandler(e)} onBlur={e => blurHandler(e)} type="password" name="password"/>
 
