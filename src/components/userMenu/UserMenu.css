@@ -28,81 +28,59 @@
 }
 .user{
     display: flex;
-    position: relative;
-}
-.user-wrapper{
-    display: flex;
     align-items: center;
-    cursor: pointer;
+    position: relative;
 }
 .user-image{
-    width: 50px;
-    height: 50px;
-    border: 1px solid #000000;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
 }
 .user-username{
-    margin-left: 10px;
-    font-weight: bold;
-    font-size: 18px;
+    margin-right: 10px;
 }
-.user-pointer{
-    width: 20px;
-    height: 100%;
-    position: relative;
-    margin-left: 2px;
-}
-.user-pointer:after,
-.user-pointer:before{
-    content: '';
-    background-color: black;
-    position: absolute;
-    width: 12px;
-    height: 2px;
-    transition: 0.3s;
-}
-.user-pointer:before{
-    left: 0;
-    top: 50%;
-    transform: rotate(45deg);
-}
-
-.user-pointer:after{
-    right: 0;
-    top: 50%;
-    transform: rotate(-45deg);
-}
-.user-pointer.open:before{
-    transform: rotate(-45deg);
-}
-.user-pointer.open:after{
-    transform: rotate(45deg);
-}
-
-
 .user-nav{
     display: none;
     width: 100%;
     position: absolute;
     left: 0;
-    background-color: darkgray;
+    border: 1px solid #000000;
+    background-color: #fff;
 }
 .user-nav.open{
     display: block;
-    top: 110%;
+    top: 100%;
 }
 .user-nav ul{
     list-style: none;
+    padding: 0;
+}
+.user-nav ul li{
+    margin-top: 6px;
+}
+.user-nav ul li:hover{
+    background-color: #D9D9D9;
 }
 .user-nav ul li a{
     text-decoration: none;
     color: black;
-    font-weight: 600;
     font-size: 18px;
+}
+.user-log_out{
+    cursor: pointer;
 }
 
 
 @media (max-width: 767px) {
+
+    .user-nav ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+     .user-nav ul li{
+         margin-top: 20px;
+    }
     .login{
         display: block;
         position: fixed;
@@ -121,12 +99,12 @@
         justify-content: center;
         width: 100%;
         height: 100%;
+        display: flex;
     }
     .login ul li{
         width: 100%;
         text-align: center;
         border-top: 1px solid #000000;
-
     }
     .login-button{
         border: none;

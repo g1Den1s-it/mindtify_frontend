@@ -1,9 +1,10 @@
 import './Logo.css'
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Logo = (props) => {
     return(
-        <a href={props.url} data-testid="logo" className="logo">Mindtify</a>
+        <Link to={props.url} data-testid="logo" className="logo">Mindtify</Link>
     );
 }
 export default Logo;

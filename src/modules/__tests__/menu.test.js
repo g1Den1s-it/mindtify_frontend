@@ -3,9 +3,13 @@ import React from "react";
 import {Menu} from "../index";
 import '@testing-library/jest-dom/extend-expect';
 import {UserMenu} from "../../components";
+import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+import store from "../../states/store";
+
 describe("Menu Test", () => {
     test("Rendering test", () =>{
-        render(<Menu/>);
+        render(<Provider store={store}><BrowserRouter><Menu/></BrowserRouter></Provider>);
 
         const menu = screen.getByTestId("menu");
 
@@ -13,7 +17,7 @@ describe("Menu Test", () => {
         expect(menu).toBeVisible();
     });
     test("Rendering logo test", () => {
-       render(<Menu/>);
+       render(<Provider store={store}><BrowserRouter><Menu/></BrowserRouter></Provider>);
 
        const logo = screen.getByTestId("logo");
 
@@ -21,7 +25,7 @@ describe("Menu Test", () => {
        expect(logo).toBeVisible();
     });
     test("Rendering user menu", () =>{
-        render(<UserMenu/>);
+        render(<Provider store={store}><BrowserRouter><UserMenu/></BrowserRouter></Provider>);
 
         const userMenu = screen.getByTestId("user-menu");
 

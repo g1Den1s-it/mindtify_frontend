@@ -1,11 +1,22 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import React from "react";
 import "./UserMenu.css";
+import {Link, useLocation} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {deleteUser} from "../../states/user/userSlice";
 
 const UserMenu = () => {
     const defaultUserImage = "/default/user.png";
-    const [isAuth, setIsAuth] = useState(true);
-    const [user, isUser] = useState({user: {image: '', username: 'some_username'}});
+    const user = useSelector(state => state.user);
+    const [userData, setUserData] = useState({});
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if(user && user.user){
+            setUserData(user.user);
+        }
+    }, [user]);
+
 
     const activeHandler = (e) => {
         const userNav = document.querySelector(".user-nav");
@@ -18,12 +29,18 @@ const UserMenu = () => {
         body.classList.toggle("lock");
     }
 
-    const openHandlerUser = (e) => {
-        const userPointer = document.querySelector(".user-pointer");
+    const mouseEnterHandler = () => {
         const userNav = document.querySelector(".user-nav");
+        userNav.classList.add("open");
+    }
+    const mouseLeaveHandler = () => {
+        const userNav = document.querySelector(".user-nav");
+        userNav.classList.remove("open");
+    }
 
-        userNav.classList.toggle("open");
-        userPointer.classList.toggle("open");
+    const logOutHandler = () => {
+        dispatch(deleteUser());
+        window.location.reload();
     }
 
     return(
@@ -31,32 +48,33 @@ const UserMenu = () => {
         <div data-testid="burger" className="user-menu-burger" onClick={activeHandler}>
             <span></span>
         </div>
-        {isAuth
+        {Object.keys(userData).length !== 0
             ?
-            <div className="user">
-                <img className="user-image" src={user.user.image === '' ? defaultUserImage : user.image}
-                     alt="user"/>
-                <div data-testid="wrapper" className="user-wrapper" onClick={openHandlerUser}>
-                    <span className="user-username">{user.user.username}</span>
-                    <div data-testid="pointer" className="user-pointer"></div>
-                </div>
+            <div className="user" onMouseEnter={mouseEnterHandler} onMouseLeave={mouseLeaveHandler}>
+                <div className="user-username" >{userData.username}</div>
+                <img className="user-image" src={userData.image === '' ? defaultUserImage : userData.image} alt="user"/>
                 <nav data-testid="nav" className="user-nav">
                     <ul>
                         <li>
-                            <a href="">Log out</a>
+                            <Link to="/profile/">Profile</Link>
+                        </li>
+                        <li>
+                            <Link to="/settings/">Settings</Link>
+                        </li>
+                        <li>
+                            <a className="user-log_out" onClick={logOutHandler}>Log out</a>
                         </li>
                     </ul>
                 </nav>
-
             </div>
             :
             <div className="login">
                 <ul>
                     <li>
-                        <a className="login-button" href="/sign-in/">sign in</a>
+                        <Link className="login-button" to="/login/">sign in</Link>
                     </li>
                     <li>
-                        <a className="login-button" href="/sign-up/">sign up</a>
+                        <Link className="login-button" to="/sign-up/">sign up</Link>
                     </li>
                 </ul>
             </div>
