@@ -4,7 +4,9 @@ import '@testing-library/jest-dom/extend-expect';
 import {TestList} from "../index";
 import MockAdapter from "axios-mock-adapter";
 import axios from "axios";
-
+import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+import store from "../../states/store";
 
 const mock = new MockAdapter(axios);
 
@@ -24,7 +26,7 @@ describe("Test List Test",  () => {
 
         mock.onGet("/").replyOnce(200, response);
 
-        render(<TestList/>);
+        render(<Provider store={store}><BrowserRouter><TestList/></BrowserRouter></Provider>);
 
         await waitFor(() => {
             const card = screen.getByTestId(`card-${response.data[0].slug}`);

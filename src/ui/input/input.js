@@ -3,7 +3,7 @@ import "./input.css";
 const Input = ({type, name, value,onBlur, onChange}) =>{
     return(
         <>
-            <input onChange={onChange} onBlur={onBlur} type={type} name={name} value={value} className="input"/>
+            <input data-testid="input" onChange={onChange} onBlur={onBlur} type={type} name={name} value={value} className="input"/>
         </>
     );
 };
