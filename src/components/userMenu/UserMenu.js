@@ -56,10 +56,10 @@ const UserMenu = () => {
                 <nav data-testid="nav" className="user-nav">
                     <ul>
                         <li>
-                            <Link to="/log-out/">Profile</Link>
+                            <Link to="/profile/">Profile</Link>
                         </li>
                         <li>
-                            <Link to="/log-out/">Settings</Link>
+                            <Link to="/settings/">Settings</Link>
                         </li>
                         <li>
                             <a className="user-log_out" onClick={logOutHandler}>Log out</a>
